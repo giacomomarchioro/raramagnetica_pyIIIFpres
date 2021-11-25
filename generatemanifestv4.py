@@ -57,7 +57,7 @@ last_label = None
 rngind = defaultdict(int)
 idx = 0
 with open('metadata_v4.csv') as csv_file, open('imageurllist.txt') as url_list:
-    data = csv.DictReader(csv_file, delimiter=';')
+    data = csv.DictReader(csv_file, delimiter=',')
     lastlevel = 1
     for d in data:
         if d['canvas label'] != last_label:
