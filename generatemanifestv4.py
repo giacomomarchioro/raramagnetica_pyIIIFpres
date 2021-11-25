@@ -57,7 +57,7 @@ last_label = None
 rngind = defaultdict(int)
 idx = 0
 with open('metadata_v4.csv') as csv_file, open('imageurllist.txt') as url_list:
-    data = csv.DictReader(csv_file, delimiter=';')
+    data = csv.DictReader(csv_file, delimiter=',')
     lastlevel = 1
     for d in data:
         if d['canvas label'] != last_label:
@@ -91,7 +91,7 @@ with open('metadata_v4.csv') as csv_file, open('imageurllist.txt') as url_list:
         if d['structure'] != "":
             if d['level'] == "":
                 raise ValueError("Plase specify a level for: %s, %s" %(d['structure'],d['canvas label']))
-            currentlevel = int(d['level'])
+            currentlevel = int(d['level']) + 1
             if currentlevel < lastlevel: # this is the case of a new chapter
                 for lv in list(rngind):
                     if lv > currentlevel:
