@@ -46,7 +46,17 @@ serv.set_profile("level2")
 start = manifest.set_start()
 start.set_id("https://dlib2.biblhertz.it/iiif/3/bncrges1323/canvas/p0005") # this must be provided
 start.set_type("Canvas")
-
+thumbnailurl = "https://dlib2.biblhertz.it/iiif/3/bncrges1323@0001.jp2" # this must be provided or we can choose the first image
+thum = manifest.add_thumbnail()
+thum.set_id("%s/full/max/0/default.jpg" %thumbnailurl)
+thum.set_type("Image")
+thum.set_format("image/jpeg")
+thum.set_height(300)
+thum.set_width(219)
+tserv = thum.add_service()
+tserv.set_id(thumbnailurl)
+tserv.set_type("ImageService3")
+tserv.set_profile("level2")
 manifest.structures = []
 rng = manifest.add_range_to_structures()
 rng.set_id(extendbase_url="range/")
