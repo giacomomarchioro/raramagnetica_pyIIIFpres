@@ -10,7 +10,7 @@ iiifpapi3.BASE_URL = "https://dlib.biblhertz.it/iiif/bncrges1323/" # this is the
 iiifpapi3.INVALID_URI_CHARACTERS = iiifpapi3.INVALID_URI_CHARACTERS.replace("@","")
 manifest = iiifpapi3.Manifest()
 manifest.set_id(extendbase_url="manifest.json")
-manifest.add_label("en","Zucchi, Philosophia magnetica") # it'is eng?
+manifest.add_label("en","Zucchi, Philosophia magnetica")
 manifest.add_behavior("paged")
 manifest.add_behavior("continuous")
 manifest.set_navDate("2021-11-16T18:17:44.573+01:00")
