@@ -10,7 +10,7 @@ iiifpapi3.BASE_URL = "https://dlib.biblhertz.it/iiif/bncrges1323/" # this is the
 iiifpapi3.INVALID_URI_CHARACTERS = iiifpapi3.INVALID_URI_CHARACTERS.replace("@","")
 manifest = iiifpapi3.Manifest()
 manifest.set_id(extendbase_url="manifest.json")
-manifest.add_label("en","Zucchi, Philosophia magnetica") # it'is eng?
+manifest.add_label("en","Zucchi, Philosophia magnetica")
 manifest.add_behavior("paged")
 manifest.add_behavior("continuous")
 manifest.set_navDate("2021-11-16T18:17:44.573+01:00")
@@ -47,22 +47,17 @@ start = manifest.set_start()
 start.set_id("https://dlib2.biblhertz.it/iiif/3/bncrges1323/canvas/p0005") # this must be provided
 start.set_type("Canvas")
 
-
 manifest.structures = []
 rng = manifest.add_range_to_structures()
 rng.set_id(extendbase_url="range/")
 rng.add_label('en',"Tables of Contents")
-strdic = {0:rng}
+strdic = {-1:rng}
 last_label = None
 rngind = defaultdict(int)
 idx = 0
 with open('metadata_v4.csv') as csv_file, open('imageurllist.txt') as url_list:
     data = csv.DictReader(csv_file, delimiter=',')
-<<<<<<< Updated upstream
-    lastlevel = 1
-=======
     lastlevel = 0
->>>>>>> Stashed changes
     for d in data:
         if d['canvas label'] != last_label:
             last_label = d['canvas label']
@@ -94,7 +89,7 @@ with open('metadata_v4.csv') as csv_file, open('imageurllist.txt') as url_list:
             s.set_profile("level1")
         if d['structure'] != "":
             if d['level'] == "":
-                raise ValueError("Plase specify a level for: %s, %s" %(d['structure'],d['canvas label']))
+                raise ValueError("Please specify a level for: %s, %s" %(d['structure'],d['canvas label']))
             currentlevel = int(d['level'])
             if currentlevel < lastlevel: # this is the case of a new chapter
                 for lv in list(rngind):
