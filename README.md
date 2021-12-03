@@ -1,8 +1,8 @@
 # raramagnetica_pyIIIFpres
 
-Test for using pyIIIFpres for rara magnetica project.
+Example scripts for using pyIIIFpres for [rara magnetica project](https://ch-sander.github.io/raramagnetica/documentation.html).
 
-This test show how to use [pyIIIFpres](https://github.com/giacomomarchioro/pyIIIFpres) for creating mannifest compliant to IIIF presentation api 3.0.
+This test show how to use [pyIIIFpres](https://github.com/giacomomarchioro/pyIIIFpres) for creating mannifest compliant to IIIF presentation api 3.0 using the workflow proposed by Dr. Sander.
 
 
 ## Installation
@@ -19,3 +19,5 @@ In the same folder of the python script must be present the imageurlist.txt (an 
 To test the last version:
 
     python generatemanifestv4.py
+
+NOTE: for generatemanifestv5.py the metadata_v4.csv schema is still valid, so the name of the file must be kept metadata_v4.csv.
